@@ -20,15 +20,6 @@ This portfolio highlights:
 - React-Leaflet (for maps)
 - React Icons
 
-## How to Run Locally
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/sheakent01/my-portfolio.git
-   cd my-portfolio
-
-
 ## Contact
 
 - [LinkedIn](https://linkedin.com/in/shea-kent/)
