@@ -1,12 +1,39 @@
-# React + Vite
+# Shea Kent Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio website! This site showcases over 20 years of expertise in high-tech construction, semiconductor manufacturing, and emerging skills in modern web development.
 
-Currently, two official plugins are available:
+## About This Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This portfolio highlights:
 
-## Expanding the ESLint configuration
+- **Professional Experience:** Cleanroom construction, semiconductor fabs, logistics, and project management.
+- **Technical Skills:** React, Tailwind CSS, .NET/Blazor, JavaScript, and more.
+- **Interactive Features:** Interactive maps of semiconductor fab locations I’ve supported.
+- **Responsive Design:** Built with a modern, clean, and masculine aesthetic using Tailwind CSS.
+- **Animations & Accessibility:** Smooth fade-in effects, keyboard navigable elements, and semantic HTML.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- React
+- Tailwind CSS
+- Vite
+- React-Leaflet (for maps)
+- React Icons
+
+## How to Run Locally
+
+1. Clone this repository:
+
+   ```bash
+   git clone https://github.com/sheakent01/my-portfolio.git
+   cd my-portfolio
+
+
+## Contact
+
+- [LinkedIn](https://linkedin.com/in/shea-kent/)
+- [GitHub](https://github.com/sheakent01)
+
+---
+
+**Built by Shea Kent**
