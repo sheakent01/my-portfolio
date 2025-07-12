@@ -1,71 +1,96 @@
+import { useState } from "react";
+import axios from "axios";
+
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");
+    setLoading(true);
+
+    try {
+      const res = await axios.post("http://localhost:4000/contact", formData);
+
+      if (res.data.success) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("❌ Something went wrong. Try again.");
+      }
+    } catch (error) {
+      setStatus("⚠️ Server error. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <section className="min-h-screen bg-slateblack text-white font-montserrat p-10 flex flex-col max-w-3xl mx-auto animate-fadeIn">
-      
+    <section className="min-h-screen bg-slateblack text-white font-montserrat p-10 flex flex-col max-w-3xl mx-auto">
       <h2 className="text-4xl font-bold mb-8 border-b-4 border-electricblue pb-2 w-max">
         Contact Me
       </h2>
 
-      <p className="text-gray-300 mb-8">
-        Have a project, opportunity, or just want to connect? Reach out below.
-      </p>
-
-      {/* Contact Form */}
-      <form className="bg-gunmetal p-6 rounded-lg shadow-lg space-y-6">
-        
+      <form
+        onSubmit={handleSubmit}
+        className="bg-gunmetal p-6 rounded-lg shadow-lg space-y-4"
+      >
         <div>
-          <label htmlFor="name" className="block text-gray-300 mb-1">Name</label>
+          <label className="block text-gray-300 mb-1">Name</label>
           <input
-            id="name"
             type="text"
-            aria-label="Name"
+            name="name"
             placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
             required
-            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none focus:ring-2 focus:ring-electricblue transition"
+            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-gray-300 mb-1">Email</label>
+          <label className="block text-gray-300 mb-1">Email</label>
           <input
-            id="email"
             type="email"
-            aria-label="Email"
+            name="email"
             placeholder="you@example.com"
+            value={formData.email}
+            onChange={handleChange}
             required
-            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none focus:ring-2 focus:ring-electricblue transition"
+            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-gray-300 mb-1">Message</label>
+          <label className="block text-gray-300 mb-1">Message</label>
           <textarea
-            id="message"
+            name="message"
             rows="4"
-            aria-label="Message"
             placeholder="Your message..."
+            value={formData.message}
+            onChange={handleChange}
             required
-            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none focus:ring-2 focus:ring-electricblue transition"
+            className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          className="bg-electricblue text-slateblack font-bold py-2 px-6 rounded hover:bg-blue-500 transition shadow-md"
+          disabled={loading}
+          className="bg-electricblue text-slateblack font-bold py-2 px-4 rounded hover:bg-blue-500 transition disabled:opacity-50"
         >
-          Send Message
+          {loading ? "Sending..." : "Send Message"}
         </button>
 
+        {status && <p className="text-sm text-gray-300 mt-2">{status}</p>}
       </form>
-
-      {/* Direct Links */}
-      <div className="mt-10 space-y-3 text-gray-300 text-center">
-        <p>Email: <a href="mailto:sheakent@outlook.com" className="text-electricblue hover:underline" aria-label="Email Shea Kent">sheakent@outlook.com</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/shea-kent/" target="_blank" rel="noopener noreferrer" className="text-electricblue hover:underline" aria-label="LinkedIn Profile">linkedin.com/in/shea-kent/</a></p>
-        <p>GitHub: <a href="https://github.com/sheakent01" target="_blank" rel="noopener noreferrer" className="text-electricblue hover:underline" aria-label="GitHub Profile">github.com/sheakent01</a></p>
-      </div>
-
     </section>
   );
 }
-

@@ -138,13 +138,13 @@ export default function Projects() {
         <div className="bg-gunmetal p-6 rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-300">
           <h4 className="text-xl font-bold text-electricblue mb-2">TSMC Fab 21 — Phoenix, AZ</h4>
           <p className="text-gray-300 mb-1">Role: Project Controls Manager</p>
-          <p className="text-gray-400">Scope: Cleanroom installation, logistics coordination, material laydown zones.</p>
+          <p className="text-gray-400">Scope: Site Logistics and Coordination, Site Management team for Customer, Site Shared Services, Site Program Development and Management.</p>
         </div>
 
         <div className="bg-gunmetal p-6 rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-300">
           <h4 className="text-xl font-bold text-electricblue mb-2">Intel Ocotillo Campus — Chandler, AZ</h4>
           <p className="text-gray-300 mb-1">Role: Logistics Consultant</p>
-          <p className="text-gray-400">Scope: Multiple fab projects including cleanroom buildouts and logistics support.</p>
+          <p className="text-gray-400">Scope: Multiple fab projects including cleanroom buildouts and logistics support for Automated Material Handling System.</p>
         </div>
 
         <div className="bg-gunmetal p-6 rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-300">

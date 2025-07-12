@@ -13,7 +13,7 @@ export default function About() {
         
         {/* Profile Image */}
         <img
-          src="/images/Image.jpeg"
+          src="/images/portfolioimg.jpg"
           alt="Profile"
           className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-electricblue object-cover transition duration-300 hover:shadow-[0_0_15px_#00bfff]"
         />
