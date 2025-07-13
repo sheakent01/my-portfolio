@@ -2,33 +2,31 @@ import { useState } from "react";
 import axios from "axios";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
   const [status, setStatus] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("");
-    setLoading(true);
 
     try {
       const res = await axios.post("http://localhost:4000/contact", formData);
-
-      if (res.data.success) {
-        setStatus("✅ Message sent successfully!");
+      if (res.data.status === "success") {
+        setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        setStatus("❌ Something went wrong. Try again.");
+        setStatus("Something went wrong. Try again.");
       }
-    } catch (error) {
-      setStatus("⚠️ Server error. Please try again later.");
-    } finally {
-      setLoading(false);
+    } catch (err) {
+      setStatus("Something went wrong. Try again.");
     }
   };
 
@@ -38,10 +36,7 @@ export default function Contact() {
         Contact Me
       </h2>
 
-      <form
-        onSubmit={handleSubmit}
-        className="bg-gunmetal p-6 rounded-lg shadow-lg space-y-4"
-      >
+      <form onSubmit={handleSubmit} className="bg-gunmetal p-6 rounded-lg shadow-lg space-y-4">
         <div>
           <label className="block text-gray-300 mb-1">Name</label>
           <input
@@ -50,7 +45,6 @@ export default function Contact() {
             placeholder="Your Name"
             value={formData.name}
             onChange={handleChange}
-            required
             className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           />
         </div>
@@ -63,7 +57,6 @@ export default function Contact() {
             placeholder="you@example.com"
             value={formData.email}
             onChange={handleChange}
-            required
             className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           />
         </div>
@@ -76,21 +69,54 @@ export default function Contact() {
             placeholder="Your message..."
             value={formData.message}
             onChange={handleChange}
-            required
             className="w-full p-2 rounded bg-slateblack text-white border border-gray-600 focus:border-electricblue focus:outline-none"
           ></textarea>
         </div>
 
         <button
           type="submit"
-          disabled={loading}
-          className="bg-electricblue text-slateblack font-bold py-2 px-4 rounded hover:bg-blue-500 transition disabled:opacity-50"
+          className="bg-electricblue text-slateblack font-bold py-2 px-4 rounded hover:bg-blue-500 transition"
         >
-          {loading ? "Sending..." : "Send Message"}
+          Send Message
         </button>
 
         {status && <p className="text-sm text-gray-300 mt-2">{status}</p>}
       </form>
+
+      {/* Contact Info */}
+      <div className="mt-8 space-y-2 text-gray-300">
+        <p>
+          Email:{" "}
+          <a
+            href="mailto:sheakent@outlook.com"
+            className="text-electricblue hover:underline"
+          >
+            sheakent@outlook.com
+          </a>
+        </p>
+        <p>
+          LinkedIn:{" "}
+          <a
+            href="https://linkedin.com/in/shea-kent/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-electricblue hover:underline"
+          >
+            linkedin.com/in/shea-kent/
+          </a>
+        </p>
+        <p>
+          GitHub:{" "}
+          <a
+            href="https://github.com/sheakent01"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-electricblue hover:underline"
+          >
+            github.com/sheakent01
+          </a>
+        </p>
+      </div>
     </section>
   );
 }
