@@ -15,7 +15,7 @@ export default function Projects() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
 
-          {/* Example Semiconductor Fabs — Replace with your real ones */}
+          {/* Semiconductor Fabs */}
           <Marker position={[33.7758793, -112.1605468]}>
             <Popup>
               <div
