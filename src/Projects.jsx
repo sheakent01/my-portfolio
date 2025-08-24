@@ -1,5 +1,16 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+const customIcon = new L.Icon({
+  iconUrl: "/images/marker-icon.png",
+  iconRetinaUrl: "/images/marker-icon-2x.png", // retina version
+  shadowUrl: "/images/marker-shadow.png",
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  iconAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 export default function Projects() {
   return (
@@ -16,7 +27,7 @@ export default function Projects() {
           />
 
           {/* Semiconductor Fabs */}
-          <Marker position={[33.7758793, -112.1605468]}>
+          <Marker position={[33.7758793, -112.1605468]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -32,7 +43,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[33.2418512, -111.8807785]}>
+          <Marker position={[33.2418512, -111.8807785]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -48,7 +59,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[45.5416342, -122.9147796]}>
+          <Marker position={[45.5416342, -122.9147796]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -64,7 +75,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[35.2231596, -106.6585296]}>
+          <Marker position={[35.2231596, -106.6585296]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -80,7 +91,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[31.5945750, 34.7877437]}>
+          <Marker position={[31.5945750, 34.7877437]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -96,7 +107,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[53.3712908, -6.5100690]}>
+          <Marker position={[53.3712908, -6.5100690]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
@@ -112,7 +123,7 @@ export default function Projects() {
             </Popup>
           </Marker>
 
-          <Marker position={[39.0793188, 121.8751201]}>
+          <Marker position={[39.0793188, 121.8751201]} icon={customIcon}>
             <Popup>
               <div
                 className="max-w-xs text-white rounded-lg p-3"
